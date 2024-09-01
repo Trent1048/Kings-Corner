@@ -1,3 +1,6 @@
+// Kings Corner Card Game
+// Trent Bultsma
+
 #include <iostream>
 
 int main() {
