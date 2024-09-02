@@ -12,6 +12,8 @@ enum class Suit {
     Club
 };
 
+std::ostream& operator <<(std::ostream& os, Suit suit);
+
 enum class Rank {
     Ace,
     Two,
@@ -27,6 +29,8 @@ enum class Rank {
     Queen,
     King
 };
+
+std::ostream& operator <<(std::ostream& os, Rank rank);
 
 class Card {
 public:

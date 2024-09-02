@@ -3,7 +3,9 @@
 
 #pragma once
 
+#include <assert.h>
 #include <ostream>
+#include <unordered_map>
 
 #include "Game/Card.h"
 
@@ -23,8 +25,46 @@ Rank Card::rank() const {
 }
 
 std::ostream& operator <<(std::ostream& os, const Card& card) {
-    // TODO need to make a enum class to string converter for rank/suit
-    return os << static_cast<int>(card.rank()) << " of " << static_cast<int>(card.suit()) << "s";
+    return os << card.rank() << " of " << card.suit() << "s";
+}
+
+std::ostream& operator <<(std::ostream& os, Suit suit) {
+    static const std::unordered_map<Suit, std::string> suitStrings = {
+        {Suit::Heart, "Heart"},
+        {Suit::Diamond, "Diamond"},
+        {Suit::Spade, "Spade"},
+        {Suit::Club, "Club"}
+    };
+
+    auto suitIt = suitStrings.find(suit);
+    if (suitIt != suitStrings.end())
+        return os << suitIt->second;
+    assert(false);
+    return os << "Unknown Suit";
+}
+
+std::ostream& operator <<(std::ostream& os, Rank rank) {
+    static const std::unordered_map<Rank, std::string> rankStrings = {
+        {Rank::Ace, "Ace"},
+        {Rank::Two, "Two"},
+        {Rank::Three, "Three"},
+        {Rank::Four, "Four"},
+        {Rank::Five, "Five"},
+        {Rank::Six, "Six"},
+        {Rank::Seven, "Seven"},
+        {Rank::Eight, "Eight"},
+        {Rank::Nine, "Nine"},
+        {Rank::Ten, "Ten"},
+        {Rank::Jack, "Jack"},
+        {Rank::Queen, "Queen"},
+        {Rank::King, "King"}
+    };
+
+    auto rankIt = rankStrings.find(rank);
+    if (rankIt != rankStrings.end())
+        return os << rankIt->second;
+    assert(false);
+    return os << "Unknown Rank";
 }
 
 }
