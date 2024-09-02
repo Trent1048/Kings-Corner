@@ -1,6 +1,8 @@
 // Kings Corner Card Game
 // Trent Bultsma
 
+#include <ostream>
+
 namespace game {
     
 enum class Suit {
@@ -30,8 +32,10 @@ class Card {
 public:
     Card(Suit suit, Rank rank);
 
-    Suit suit();
-    Rank rank();
+    Suit suit() const;
+    Rank rank() const;
+
+    friend std::ostream& operator <<(std::ostream& os, const Card& card);
 
 private:
     Suit mSuit;
