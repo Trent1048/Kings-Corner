@@ -5,7 +5,7 @@
 
 #include <vector>
 
-#include "Card.h"
+#include "Game/Card.h"
 
 namespace game {
 
