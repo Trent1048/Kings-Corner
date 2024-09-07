@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "Game/Deck.h"
+#include "Game/Player.h"
 
 using namespace game;
 
@@ -11,11 +12,22 @@ int main() {
     Deck deck = Deck();
     deck.shuffle();
 
-    std::cout << "Top Five cards are:" << std::endl;
+    Player player1;
+    Player player2;
 
     for (int i = 0; i < 5; ++i) {
-        Card topCard = deck.draw();
-        std::cout << "\t" << topCard << std::endl;
+        player1.addToHand(deck.draw());
+        player2.addToHand(deck.draw());
+    }
+
+    std::cout << "Player 1 Hand:" << std::endl;
+    for (const Card& card : player1.hand()) {
+        std::cout << "\t" << card << std::endl;
+    }
+
+    std::cout << "Player 2 Hand:" << std::endl;
+    for (const Card& card : player2.hand()) {
+        std::cout << "\t" << card << std::endl;
     }
     return 0;
 }

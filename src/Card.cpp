@@ -1,8 +1,6 @@
 // Kings Corner Card Game
 // Trent Bultsma
 
-#pragma once
-
 #include <assert.h>
 #include <ostream>
 #include <unordered_map>

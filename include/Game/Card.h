@@ -1,6 +1,8 @@
 // Kings Corner Card Game
 // Trent Bultsma
 
+#pragma once
+
 #include <ostream>
 
 namespace game {
